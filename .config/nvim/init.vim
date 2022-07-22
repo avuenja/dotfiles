@@ -127,19 +127,21 @@ runtime ./maps.vim
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
 
-" true color
-if exists("&termguicolors") && exists("&winblend")
-  syntax enable
+if has('termguicolors')
   set termguicolors
-  set winblend=0
-  set wildoptions=pum
-  set pumblend=5
-  set background=dark
-  " Use NeoSolarized
-  let g:neosolarized_termtrans=1
-  runtime ./colors/NeoSolarized.vim
-  colorscheme NeoSolarized
 endif
+
+set background=dark
+
+" Use everforest
+" Set contrast.
+" This configuration option should be placed before `colorscheme everforest`.
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'soft'
+let g:everforest_transparent_background = 1
+" For better performance
+let g:everforest_better_performance = 1
+colorscheme everforest
 
 "}}}
 
