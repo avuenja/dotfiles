@@ -13,16 +13,19 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
 Plug 'sainnhe/everforest'
 
-" LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
-Plug 'tami5/lspsaga.nvim'
-Plug 'folke/lsp-colors.nvim'
-Plug 'onsails/lspkind-nvim'
+" COC For TSLint, AutoComplete and Prettier
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/nvim-cmp'
+" LSP
+"Plug 'neovim/nvim-lspconfig'
+"Plug 'williamboman/nvim-lsp-installer'
+"Plug 'tami5/lspsaga.nvim'
+"Plug 'folke/lsp-colors.nvim'
+"Plug 'onsails/lspkind-nvim'
+
+"Plug 'hrsh7th/cmp-nvim-lsp'
+"Plug 'hrsh7th/cmp-buffer'
+"Plug 'hrsh7th/nvim-cmp'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'kyazdani42/nvim-web-devicons'
@@ -39,5 +42,8 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
+
+" Copilot
+Plug 'github/copilot.vim'
 
 call plug#end()
