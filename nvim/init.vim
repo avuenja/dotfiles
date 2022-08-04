@@ -29,9 +29,11 @@ set inccommand=split
 set smarttab
 
 set cursorline
-set colorcolumn=80
+"set colorcolumn=80
 
 set clipboard+=unnamedplus
+
+set mouse=a
 
 " Indents
 "
@@ -47,10 +49,6 @@ set backspace=start,eol,indent
 " Finding files
 set path+=**
 set wildignore+=*/node_modules/*
-
-" Leadermap
-"
-let mapleader = " "
 
 " Imports
 "
