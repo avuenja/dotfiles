@@ -6,3 +6,4 @@ lua << EOF
     Hint = "#10B981",
   })
 EOF
+

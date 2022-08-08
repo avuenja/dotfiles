@@ -35,10 +35,9 @@ Plug 'github/copilot.vim'
 
 " Interface
 "
-Plug 'sainnhe/everforest'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'rebelot/kanagawa.nvim'
-
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'

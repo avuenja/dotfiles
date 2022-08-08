@@ -1,6 +1,6 @@
 lua << EOF
   require('kanagawa').setup({
-    transparent = true,
+    transparent=true,
   })
 EOF
 
