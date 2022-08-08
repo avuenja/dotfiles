@@ -6,6 +6,7 @@ syntax enable
 
 set nocompatible
 set number
+set relativenumber
 set fileencodings=utf-8
 set encoding=utf-8
 set title
@@ -21,7 +22,6 @@ set expandtab
 set ignorecase
 set noswapfile
 
-set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
 
 set lazyredraw
@@ -33,7 +33,7 @@ set cursorline
 
 set clipboard+=unnamedplus
 
-set mouse=a
+"set mouse=a
 
 " Indents
 "
