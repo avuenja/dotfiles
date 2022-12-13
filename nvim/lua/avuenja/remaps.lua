@@ -3,8 +3,8 @@ local nnoremap = require("avuenja.keymap").nnoremap
 local vnoremap = require("avuenja.keymap").vnoremap
 local inoremap = require("avuenja.keymap").inoremap
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
 -- Do not yank with x
 nnoremap("x", '"_x')
@@ -14,8 +14,8 @@ nnoremap("+", "<C-a>")
 nnoremap("-", "<C-x>")
 
 -- Split window
-nnoremap("ss", ":split<Return><C-w>w", { silent = true })
-nnoremap("sv", ":vsplit<Return><C-w>w", { silent = true })
+nnoremap("ss", ":split<Return>", { silent = true })
+nnoremap("sv", ":vsplit<Return>", { silent = true })
 
 -- Copy all lines
 nnoremap("<Leader>ca", ":%y+<Return>", { silent = true })
@@ -29,7 +29,7 @@ nnoremap("<Leader>mn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { silent = tru
 vnoremap("<C-r>", '"hy:%s/<C-r>h//gc<left><left><left>')
 
 -- Update current file
-nnoremap("<Leader>so", ":source %<CR>")
+nnoremap("<Leader>so", ":so %<CR>")
 
 -- Open current folder
 anoremap("<Leader>f", ":!open .<CR><CR>")
@@ -61,13 +61,13 @@ nnoremap("<C-w><up>", "<C-w>+")
 nnoremap("<C-w><down>", "<C-w>-")
 
 -- Easy insertion of a trailing ; or , from insert mode
-inoremap(';;', '<Esc>A;<Esc>')
-inoremap(',,', '<Esc>A,<Esc>')
+inoremap(";;", "<Esc>A;<Esc>")
+inoremap(",,", "<Esc>A,<Esc>")
 
 -- Disable annoying command line thing
-nnoremap('q:', ':q<CR>')
+nnoremap("q:", ":q<CR>")
 
 -- Maintain the cursor position when yanking a visual selection
 -- http://ddrscott.github.io/blog/2016/yank-without-jank/
-vnoremap('y', 'myy`y')
-vnoremap('Y', 'myY`y')
+vnoremap("y", "myy`y")
+vnoremap("Y", "myY`y")
