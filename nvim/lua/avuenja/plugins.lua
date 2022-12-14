@@ -61,7 +61,6 @@ packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
-	use("APZelos/blamer.nvim")
 	use({ "akinsho/git-conflict.nvim", tag = "*" })
 
 	-- Editorconfig
@@ -86,8 +85,5 @@ packer.startup(function(use)
 
 	-- Jest Test
 	use("andythigpen/nvim-coverage")
-	use("/Users/avuenja/Developer/neovim.plugins/jest.nvim")
-
-	-- Nvim Tree
-	use("nvim-tree/nvim-tree.lua")
+	use("mattkubej/jest.nvim")
 end)

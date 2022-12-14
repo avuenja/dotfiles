@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/Users/avuenja/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["blamer.nvim"] = {
-    loaded = true,
-    path = "/Users/avuenja/.local/share/nvim/site/pack/packer/start/blamer.nvim",
-    url = "https://github.com/APZelos/blamer.nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/avuenja/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -132,7 +127,7 @@ _G.packer_plugins = {
   ["jest.nvim"] = {
     loaded = true,
     path = "/Users/avuenja/.local/share/nvim/site/pack/packer/start/jest.nvim",
-    url = "/Users/avuenja/Developer/neovim.plugins/jest.nvim"
+    url = "https://github.com/mattkubej/jest.nvim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
@@ -193,11 +188,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/avuenja/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/Users/avuenja/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
