@@ -29,7 +29,7 @@ nnoremap("<Leader>mn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { silent = tru
 vnoremap("<C-r>", '"hy:%s/<C-r>h//gc<left><left><left>')
 
 -- Update current file
-nnoremap("<Leader>so", ":so %<CR>")
+nnoremap("<Leader>u", ":so %<CR>")
 
 -- Open current folder
 anoremap("<Leader>f", ":!open .<CR><CR>")
@@ -71,3 +71,6 @@ nnoremap("q:", ":q<CR>")
 -- http://ddrscott.github.io/blog/2016/yank-without-jank/
 vnoremap("y", "myy`y")
 vnoremap("Y", "myY`y")
+
+-- Clear hlsearch
+nnoremap("<Leader>c", ":nohlsearch<CR>")
