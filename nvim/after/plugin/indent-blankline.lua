@@ -15,8 +15,7 @@ indent_blankline.setup({
 	},
 	buftype_exclude = {
 		"terminal",
-		"NvimTree",
 	},
 	show_trailing_blankline_indent = false,
-	show_first_indent_level = true,
+	show_first_indent_level = true, -- verify
 })

@@ -1,13 +1,17 @@
-local status, packer = pcall(require, "packer")
-if not status then
-	print("Packer is not installed")
-	return
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
 end
 
--- Only required if you have packer configured as `opt`
-vim.cmd([[packadd packer.nvim]])
+local packer_bootstrap = ensure_packer()
 
-packer.startup(function(use)
+return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
@@ -17,8 +21,23 @@ packer.startup(function(use)
 	-- Icons
 	use("kyazdani42/nvim-web-devicons")
 
-	-- Statusline
-	use("nvim-lualine/lualine.nvim")
+	-- LSP
+	use("neovim/nvim-lspconfig")
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+	use("j-hui/fidget.nvim")
+
+	-- Autocompletion
+	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-buffer") -- verify
+
+	-- Snippet [Autocompletion]
+	use("L3MON4D3/LuaSnip")
+	use("saadparwaiz1/cmp_luasnip")
+
+	-- Pictograms [Autocompletion]
+	use("onsails/lspkind.nvim") -- verify
 
 	-- Treesitter
 	use({
@@ -27,41 +46,31 @@ packer.startup(function(use)
 	})
 	use("nvim-treesitter/nvim-treesitter-context")
 
+	-- Statusline
+	use("nvim-lualine/lualine.nvim")
+
 	-- Telescope
 	use("nvim-lua/plenary.nvim")
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-file-browser.nvim")
 
+	-- Git
+	use("lewis6991/gitsigns.nvim")
+	use({ "akinsho/git-conflict.nvim", tag = "*" })
+
+	-- Indent Blankline
+	use("lukas-reineke/indent-blankline.nvim")
+
 	-- Autotag & Autopairs
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
 
-	-- LSP
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-	use("neovim/nvim-lspconfig")
-
-	-- Completion
-	-- nvim-cmp source for neovim's built-in LSP
-	-- nvim-cmp source for buffer words
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/nvim-cmp")
-
-	-- Snippet
-	use("L3MON4D3/LuaSnip")
-	use("saadparwaiz1/cmp_luasnip")
-
-	-- Pictograms on CMP
-	use("onsails/lspkind.nvim")
+	-- "gc" to comment visual regions/lines
+	use("numToStr/Comment.nvim")
 
 	-- Dart/Flutter
 	use("dart-lang/dart-vim-plugin")
 	use("akinsho/flutter-tools.nvim")
-
-	-- Git
-	use("lewis6991/gitsigns.nvim")
-	use({ "akinsho/git-conflict.nvim", tag = "*" })
 
 	-- Editorconfig
 	use("editorconfig/editorconfig-vim")
@@ -71,9 +80,6 @@ packer.startup(function(use)
 
 	-- Colorizer
 	use("norcalli/nvim-colorizer.lua")
-
-	-- Indent Blankline
-	use("lukas-reineke/indent-blankline.nvim")
 
 	-- Markdown Viewer
 	use({
@@ -86,4 +92,10 @@ packer.startup(function(use)
 	-- Jest Test
 	use("andythigpen/nvim-coverage")
 	use("mattkubej/jest.nvim")
+
+	-- Automatically set up your configuration after cloning packer.nvim
+	-- Put this at the end after all plugins
+	if packer_bootstrap then
+		require("packer").sync()
+	end
 end)
