@@ -22,7 +22,6 @@ cmp.setup({
 	formatting = {
 		format = lspkind.cmp_format({
 			--mode = "symbol",
-			--maxwidth = 50,
 			with_text = true,
 			menu = {
 				nvim_lsp = "[LSP]",
@@ -97,7 +96,6 @@ cmp.setup({
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
-		{ name = "path" },
 		{ name = "buffer" },
 	},
 })

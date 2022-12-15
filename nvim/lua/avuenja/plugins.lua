@@ -30,14 +30,14 @@ return require("packer").startup(function(use)
 	-- Autocompletion
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer") -- verify
+	use("hrsh7th/cmp-buffer")
 
 	-- Snippet [Autocompletion]
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 
 	-- Pictograms [Autocompletion]
-	use("onsails/lspkind.nvim") -- verify
+	use("onsails/lspkind.nvim")
 
 	-- Treesitter
 	use({
