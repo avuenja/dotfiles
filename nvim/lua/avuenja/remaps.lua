@@ -57,10 +57,6 @@ vim.keymap.set("n", "<C-w><right>", "<C-w>>")
 vim.keymap.set("n", "<C-w><up>", "<C-w>+")
 vim.keymap.set("n", "<C-w><down>", "<C-w>-")
 
--- Disable annoying command line thing
-vim.keymap.set("n", "q:", ":q<CR>")
-vim.keymap.set("n", "Q", "<nop>")
-
 -- Maintain the cursor position when yanking a visual selection
 -- http://ddrscott.github.io/blog/2016/yank-without-jank/
 vim.keymap.set("v", "y", "myy`y")
@@ -68,3 +64,8 @@ vim.keymap.set("v", "Y", "myY`y")
 
 -- Clear hlsearch
 vim.keymap.set("n", "<leader>c", ":nohlsearch<CR>")
+
+-- Disable keymaps
+vim.keymap.set("n", "q:", "<nop>")
+vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "sf", "<nop>")
