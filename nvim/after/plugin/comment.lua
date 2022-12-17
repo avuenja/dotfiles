@@ -3,4 +3,4 @@ if not status then
 	return
 end
 
-comment.setup({})
+comment.setup()

@@ -1,4 +1,2 @@
-local nnoremap = require("avuenja.keymap").nnoremap
-
 -- Keymaps
-nnoremap(";mp", ":MarkdownPreview<Return>", { silent = true })
+vim.keymap.set("n", ";mp", ":MarkdownPreview<Return>", { silent = true })

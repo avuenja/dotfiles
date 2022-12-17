@@ -3,13 +3,6 @@ if not status then
 	return
 end
 
-local status_telescope, telescope = pcall(require, "telescope")
-if not status_telescope then
-	return
-end
-
-local nnoremap = require("avuenja.keymap").nnoremap
-
 flutter.setup({
 	decorations = {
 		statusline = {
@@ -19,10 +12,6 @@ flutter.setup({
 	},
 })
 
--- Telescope integration
-telescope.load_extension("flutter")
-
--- Keymaps
-nnoremap(";c", function()
-	telescope.extensions.flutter.commands()
-end)
+-- Dart configs
+vim.g.dart_format_on_save = true
+vim.g.dart_html_in_string = true

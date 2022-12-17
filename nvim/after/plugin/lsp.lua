@@ -1,105 +1,128 @@
-local status, nvim_lsp = pcall(require, "lspconfig")
+local status, lspconfig = pcall(require, "lspconfig")
 if not status then
 	return
 end
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-	local function buf_set_keymap(...)
-		vim.api.nvim_buf_set_keymap(bufnr, ...)
-	end
-
-	local function buf_set_option(...)
-		vim.api.nvim_buf_set_option(bufnr, ...)
-	end
-
-	--Enable completion triggered by <c-x><c-o>
-	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-
-	-- Mappings.
-	local opts = { noremap = true, silent = true }
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-
-	-- formattin:
-	if client.server_capabilities.documentFormattingProvider then
-		vim.api.nvim_command([[augroup Format]])
-		vim.api.nvim_command([[autocmd! * <buffer>]])
-		vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
-		vim.api.nvim_command([[augroup END]])
-	end
+local status_mason, mason = pcall(require, "mason")
+if not status_mason then
+	return
 end
 
-local lsp_flags = {
-	-- This is the default in Nvim 0.7+
-	debounce_text_changes = 150,
-}
+local status_mason_lsp, mason_lsp = pcall(require, "mason-lspconfig")
+if not status_mason_lsp then
+	return
+end
 
--- Set up completion using nvim_cmp with LSP source
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-nvim_lsp.tsserver.setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-	capabilities = capabilities,
-	--root_dir = nvim_lsp.util.root_pattern("package.json"),
-})
-
-nvim_lsp.sumneko_lua.setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				library = { vim.api.nvim_get_runtime_file("", true) },
-				checkThirdParty = false,
-			},
-		},
-	},
-	capabilities = capabilities,
-})
-
-nvim_lsp.intelephense.setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-	capabilities = capabilities,
-})
-
-nvim_lsp.rust_analyzer.setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-	capabilities = capabilities,
-})
-
-nvim_lsp.tailwindcss.setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-	capabilities = capabilities,
-})
-
-nvim_lsp.prismals.setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-	capabilities = capabilities,
-})
-
-nvim_lsp.astro.setup({
-	on_attach = on_attach,
-	flags = lsp_flags,
-	capabilities = capabilities,
-})
-
--- fidget
 local status_fidget, fidget = pcall(require, "fidget")
 if not status_fidget then
 	return
 end
 
+--  This function gets run when an LSP connects to a particular buffer.
+local on_attach = function(_, bufnr)
+	-- NOTE: Remember that lua is a real programming language, and as such it is possible
+	-- to define small helper and utility functions so you don't have to repeat yourself
+	-- many times.
+	--
+	-- In this case, we create a function that lets us more easily define mappings specific
+	-- for LSP related items. It sets the mode, buffer and description for us each time.
+	local nmap = function(keys, func, desc)
+		if desc then
+			desc = "LSP: " .. desc
+		end
+
+		vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+	end
+
+	nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+	nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+
+	nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+	nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+	nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+	nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
+	nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+	nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+
+	-- See `:help K` for why this keymap
+	nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+	nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+
+	-- Lesser used LSP functionality
+	nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+	nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
+	nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
+	nmap("<leader>wl", function()
+		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	end, "[W]orkspace [L]ist Folders")
+
+	-- Create a command `:Format` local to the LSP buffer
+	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+		if vim.lsp.buf.format then
+			vim.lsp.buf.format()
+		elseif vim.lsp.buf.formatting then
+			vim.lsp.buf.formatting()
+		end
+	end, { desc = "Format current buffer with LSP" })
+end
+
+-- Mason Setup
+mason.setup({
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
+})
+
+-- Enable the following language servers
+local servers = { "intelephense", "rust_analyzer", "tailwindcss", "tsserver", "sumneko_lua", "prismals" }
+
+-- Mason LSPConfig
+mason_lsp.setup({
+	ensure_installed = servers,
+})
+
+-- nvim-cmp supports additional completion capabilities
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+
+for _, lsp in ipairs(servers) do
+	lspconfig[lsp].setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
+end
+
+-- Fidget Setup
 fidget.setup()
+
+-- Example custom configuration for lua
+--
+-- Make runtime files discoverable to the server
+local runtime_path = vim.split(package.path, ";")
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
+lspconfig.sumneko_lua.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			runtime = {
+				-- Tell the language server which version of Lua you're using (most likely LuaJIT)
+				version = "LuaJIT",
+				-- Setup your lua path
+				path = runtime_path,
+			},
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+			-- Do not send telemetry data containing a randomized but unique identifier
+			telemetry = { enable = false },
+		},
+	},
+})
