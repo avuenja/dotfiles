@@ -65,6 +65,9 @@ vim.keymap.set("v", "Y", "myY`y")
 -- Clear hlsearch
 vim.keymap.set("n", "<leader>c", ":nohlsearch<CR>")
 
+-- Format
+vim.keymap.set("n", "<leader>F", vim.lsp.buf.format)
+
 -- Disable keymaps
 vim.keymap.set("n", "q:", "<nop>")
 vim.keymap.set("n", "Q", "<nop>")
