@@ -19,16 +19,8 @@ vim.keymap.set("n", "sv", ":vsplit<Return>", { silent = true })
 -- Copy all lines
 vim.keymap.set("n", "<C-a>", ":%y+<Return>", { silent = true })
 
--- Show diagnostic (TJ helps me)
-vim.keymap.set("n", "<leader>ms", "<cmd>lua vim.diagnostic.open_float()<CR>", { silent = true }) -- Open message error
-vim.keymap.set("n", "<leader>mp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { silent = true }) -- Previous message error
-vim.keymap.set("n", "<leader>mn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { silent = true }) -- Next message error
-
 -- Replace all words - better than vsc***
 vim.keymap.set("v", "<C-r>", '"hy:%s/<C-r>h//gc<left><left><left>')
-
--- Open current folder
-vim.keymap.set("n", "<leader>of", ":!open .<CR><CR>")
 
 -- Open Simulator
 vim.keymap.set("n", "<leader>os", ":!open -a Simulator <CR><CR>", { silent = true })
