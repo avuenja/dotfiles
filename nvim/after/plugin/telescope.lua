@@ -12,6 +12,9 @@ local fb_actions = extensions.file_browser.actions
 telescope.setup({
 	defaults = {
 		mappings = {
+			n = {
+				["q"] = actions.close,
+			},
 			i = {
 				["<C-u>"] = false,
 				["<C-d>"] = false,
@@ -70,9 +73,12 @@ vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" 
 vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-vim.keymap.set("n", "<leader>sc", builtin.git_commits, { desc = "[S]earch [C]ommits" })
 vim.keymap.set("n", "<leader>ss", builtin.lsp_document_symbols, { desc = "[S]earch Document [S]ymbols" })
 vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
+
+-- Telescope Git
+vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "[G]it [C]ommits" })
+vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "[G]it [S]tatus" })
 
 -- Telescope File browser
 vim.keymap.set("n", "<leader>pf", function()
