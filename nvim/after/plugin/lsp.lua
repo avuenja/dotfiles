@@ -78,7 +78,7 @@ mason.setup({
 })
 
 -- Enable the following language servers
-local servers = { "intelephense", "rust_analyzer", "tailwindcss", "tsserver", "sumneko_lua", "prismals" }
+local servers = { "intelephense", "rust_analyzer", "tailwindcss", "tsserver", "sumneko_lua", "prismals", "pyright" }
 
 -- Mason LSPConfig
 mason_lsp.setup({
