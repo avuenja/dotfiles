@@ -6,4 +6,5 @@ end
 colorizer.setup({
 	"*",
 	"!vim",
+	"!packer",
 })

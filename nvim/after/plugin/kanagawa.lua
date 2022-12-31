@@ -4,8 +4,9 @@ if not status then
 end
 
 kanagawa.setup({
-	dimInactive = true,
-	globalStatus = true,
+	transparent = true,
+	--dimInactive = true,
+	--globalStatus = true,
 })
 
 vim.cmd([[colorscheme kanagawa]])

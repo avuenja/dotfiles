@@ -66,7 +66,7 @@ vim.opt.cursorline = true
 vim.opt.background = "dark" -- dark / light
 vim.opt.spell = true
 
-vim.opt.laststatus = 3 -- global statusline
+--vim.opt.laststatus = 3 -- global statusline
 
 -- Set ';' as the leader key
 vim.g.mapleader = ";"
