@@ -11,7 +11,7 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-return require("packer").startup(function(use)
+require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
@@ -96,3 +96,10 @@ return require("packer").startup(function(use)
 		require("packer").sync()
 	end
 end)
+
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost packer.lua source <afile> | PackerCompile
+  augroup end
+]])
