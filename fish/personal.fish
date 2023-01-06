@@ -15,3 +15,8 @@ alias gps="git push"
 
 # React Native require this sh*t
 status --is-interactive; and rbenv init - fish | source
+
+set --export ANDROID $HOME/Library/Android
+set --export ANDROID_HOME $ANDROID/sdk
+set --export ANDROID_SDK_ROOT $ANDROID/sdk
+
