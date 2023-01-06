@@ -19,7 +19,7 @@ if not status_fidget then
 end
 
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
 	-- NOTE: Remember that lua is a real programming language, and as such it is possible
 	-- to define small helper and utility functions so you don't have to repeat yourself
 	-- many times.
@@ -64,6 +64,15 @@ local on_attach = function(_, bufnr)
 			vim.lsp.buf.formatting()
 		end
 	end, { desc = "Format current buffer with LSP" })
+
+	-- [[ AutoFormat on save ]]
+	-- See `:help vim.lsp.buf.format()`
+	if client.server_capabilities.documentFormattingProvider then
+		vim.api.nvim_command([[augroup AutoFormat]])
+		vim.api.nvim_command([[autocmd! * <buffer>]])
+		vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
+		vim.api.nvim_command([[augroup END]])
+	end
 end
 
 -- Mason Setup
