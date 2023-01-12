@@ -1,4 +1,4 @@
 require("avuenja.options")
-require("avuenja.packer")
+require("avuenja.lazy")
 require("avuenja.remaps")
 require("avuenja.autocmd")

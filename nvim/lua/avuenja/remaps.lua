@@ -60,6 +60,9 @@ vim.keymap.set("n", "<leader>c", ":nohlsearch<CR>")
 -- Format
 vim.keymap.set("n", "<leader>F", vim.lsp.buf.format)
 
+-- Lazy
+vim.keymap.set("n", "<leader>L", ":Lazy<CR>")
+
 -- Disable keymaps
 vim.keymap.set("n", "q:", "<nop>")
 vim.keymap.set("n", "Q", "<nop>")

@@ -36,12 +36,10 @@ vim.opt.redrawtime = 10000 -- Allow more time for loading syntax on large files
 vim.opt.confirm = true -- ask for confirmation instead of erroring
 
 --vim.opt.list = true -- enable the below listchars
---vim.opt.listchars = { tab = "▸ ", trail = "·" }
 vim.opt.fillchars:append({ eob = " " }) -- remove the ~ from end of buffer
 
 -- Set completeopt to have a better completion experience
 vim.opt.completeopt = "menuone,noselect"
---vim.opt.wildmode = "longest:full,full" -- complete the longest common match, and allow tabbing the results to fully complete them
 
 -- Tab width
 vim.opt.tabstop = 2
