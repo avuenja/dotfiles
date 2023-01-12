@@ -10,7 +10,7 @@ else
     selected=`echo "$items" | fzf`
 fi
 
-dirname=`basename $selected | sed 's/\./_/g'`
+dirname=`basename $selected | sed 's/\.//g'`
 
 tmux switch-client -t =$dirname
 if [[ $? -eq 0 ]]; then
