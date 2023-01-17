@@ -89,4 +89,6 @@ require("lazy").setup({
 	-- Jest Test
 	{ "andythigpen/nvim-coverage" },
 	{ "mattkubej/jest.nvim" },
+
+	{ "ThePrimeagen/vim-be-good" },
 }, {})
