@@ -20,3 +20,6 @@ set --export ANDROID $HOME/Library/Android
 set --export ANDROID_HOME $ANDROID/sdk
 set --export ANDROID_SDK_ROOT $ANDROID/sdk
 
+# PHP Versions (echo $(brew --prefix php@7.4)/bin/php)
+alias php@74="/opt/homebrew/opt/php@7.4/bin/php"
+alias php="/opt/homebrew/opt/php/bin/php"
