@@ -87,7 +87,7 @@ mason.setup({
 })
 
 -- Enable the following language servers
-local servers = { "intelephense", "rust_analyzer", "tailwindcss", "tsserver", "sumneko_lua", "prismals", "pyright" }
+local servers = { "intelephense", "rust_analyzer", "tailwindcss", "tsserver", "lua_ls", "prismals", "pyright" }
 
 -- Mason LSPConfig
 mason_lsp.setup({
@@ -115,7 +115,7 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
