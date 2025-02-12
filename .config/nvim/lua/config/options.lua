@@ -34,7 +34,7 @@ set.signcolumn = "yes" -- Always show sign column
 set.updatetime = 250 -- Decrease update time
 set.timeoutlen = 300 -- Decrease mapped sequence wait time
 set.scrolloff = 8 -- Screen lines to keep above and below the cursor
-set.sidescrolloff = 8
+-- set.sidescrolloff = 8
 
 set.splitbelow = true
 set.splitright = true
