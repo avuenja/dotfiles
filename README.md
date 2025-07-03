@@ -29,17 +29,6 @@ brew install ripgrep
 brew install fd
 
 brew install nodenv
-
-# SketchyBar and borders
-brew tap FelixKratz/formulae
-brew install sketchybar
-brew install --cask font-hack-nerd-font
-brew install borders
-
-# Fonts
-brew install --cask sf-symbols
-brew install --cask font-sf-mono
-brew install --cask font-sf-pro
 ```
 
 ### Links to Applications
@@ -53,5 +42,3 @@ Some applications require additional setup or configuration. Below are links to 
 - [Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 
 - [Nodenv](https://github.com/nodenv/nodenv?tab=readme-ov-file#installation)
-
-- [Sketchybar](https://github.com/FelixKratz/SketchyBar?tab=readme-ov-file)
