@@ -16,6 +16,7 @@ return {
 				"query",
 				"vim",
 				"vimdoc",
+				"dot",
 			},
 			auto_install = true,
 			highlight = {
