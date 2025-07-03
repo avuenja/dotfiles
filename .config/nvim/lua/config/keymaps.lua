@@ -52,3 +52,8 @@ keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Toggle Floatermial
 keymap.set("n", "<leader>tt", "<cmd>Floaterminal<CR>", { desc = "[T]oggle Float [T]erminal" })
+
+-- Buffers keymaps
+keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "[B]uffer [D]elete" })
+keymap.set("n", "<leader>bp", "<cmd>bp<CR>", { desc = "[B]uffer [P]revious" })
+keymap.set("n", "<leader>bn", "<cmd>bn<CR>", { desc = "[B]uffer [N]ext" })
