@@ -54,6 +54,10 @@ if.app-id = 'com.apple.Music'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS' # Messages
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.readdle.smartemail-Mac' # Spark (Mail client)
 run = 'layout floating'
 
