@@ -23,6 +23,7 @@ brew install --cask ghostty
 brew install --cask nikitabobko/tap/aerospace
 brew install starship
 brew install eza
+brew install btop
 
 brew install neovim
 brew install ripgrep
