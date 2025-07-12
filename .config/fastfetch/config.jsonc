@@ -1,0 +1,87 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+      "type": "file",
+      "source": "~/.config/fastfetch/logo.txt",
+  },
+    "modules": [
+        "title",
+        "separator",
+        "os",
+        "host",
+        "bios",
+        "bootmgr",
+        "board",
+        "chassis",
+        "kernel",
+        "initsystem",
+        "uptime",
+        "loadavg",
+        "processes",
+        "packages",
+        "shell",
+        "editor",
+        "display",
+        "monitor",
+        "de",
+        "wm",
+        "wmtheme",
+        "theme",
+        "icons",
+        "font",
+        "wallpaper",
+        "terminal",
+        "terminalfont",
+        "terminalsize",
+        "terminaltheme",
+        {
+            "type": "cpu",
+            "showPeCoreCount": true,
+            "temp": true
+        },
+        "cpuusage",
+        {
+            "type": "gpu",
+            "driverSpecific": true,
+            "temp": true
+        },
+        "memory",
+        "physicalmemory",
+        {
+            "type": "swap",
+            "separate": true
+        },
+        "disk",
+        "btrfs",
+        "zpool",
+        {
+            "type": "battery",
+            "temp": true
+        },
+        "poweradapter",
+        "player",
+        "media",
+        "dns",
+        "wifi",
+        "datetime",
+        "locale",
+        "opengl",
+        "opencl",
+        "users",
+        "sound",
+        {
+          "type": "weather",
+          "timeout": 1000
+        },
+        "netio",
+        "diskio",
+        {
+            "type": "physicaldisk",
+            "temp": true
+        },
+        "tpm",
+        "version",
+        "break",
+        "colors"
+    ]
+}

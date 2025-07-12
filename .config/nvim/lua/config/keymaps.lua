@@ -1,7 +1,7 @@
 local keymap = vim.keymap
 
 -- Keymaps for better default experience
-keymap.set({ "n", "v" }, ";", "<nop>", { silent = true, desc = "Disable leader key on Normal and Visual mode" })
+keymap.set({ "n", "v" }, " ", "<nop>", { silent = true, desc = "Disable leader key on Normal and Visual mode" })
 
 -- Copy all lines
 keymap.set("n", "<C-a>", "<cmd>%y+<Return>", { silent = true, desc = "Copy all lines" })

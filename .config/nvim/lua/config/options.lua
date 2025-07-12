@@ -21,6 +21,7 @@ set.incsearch = true
 set.breakindent = true -- Enable break indent
 
 set.title = true
+vim.opt.isfname:append("@-@") -- Allow dash in filenames
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
