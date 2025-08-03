@@ -9,31 +9,22 @@
         "separator",
         "os",
         "host",
-        "bios",
-        "bootmgr",
-        "board",
-        "chassis",
         "kernel",
-        "initsystem",
         "uptime",
-        "loadavg",
         "processes",
         "packages",
         "shell",
-        "editor",
         "display",
-        "monitor",
+        "break",
+        "player",
+        "media",
+        "break",
         "de",
         "wm",
         "wmtheme",
-        "theme",
-        "icons",
-        "font",
-        "wallpaper",
         "terminal",
         "terminalfont",
-        "terminalsize",
-        "terminaltheme",
+        "break",
         {
             "type": "cpu",
             "showPeCoreCount": true,
@@ -46,33 +37,10 @@
             "temp": true
         },
         "memory",
-        "physicalmemory",
-        {
-            "type": "swap",
-            "separate": true
-        },
         "disk",
-        "btrfs",
-        "zpool",
-        {
-            "type": "battery",
-            "temp": true
-        },
-        "poweradapter",
-        "player",
-        "media",
         "dns",
         "wifi",
-        "datetime",
-        "locale",
         "opengl",
-        "opencl",
-        "users",
-        "sound",
-        {
-          "type": "weather",
-          "timeout": 1000
-        },
         "netio",
         "diskio",
         {
@@ -80,7 +48,6 @@
             "temp": true
         },
         "tpm",
-        "version",
         "break",
         "colors"
     ]

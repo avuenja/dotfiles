@@ -8,14 +8,15 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "zed"
   },
 
   "agent": {
+    "play_sound_when_agent_done": true,
     "default_profile": "ask",
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-sonnet-4"
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-latest"
     }
   },
 
@@ -27,10 +28,14 @@
   "ui_font_size": 16,
   "buffer_font_size": 16,
 
-  "icon_theme": "Catppuccin Latte",
+  "icon_theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha"
+  },
   "theme": {
     "mode": "system",
-    "light": "Kanagawa Lotus",
+    "light": "Gruvbox Light Hard",
     "dark": "Kanagawa Wave"
   }
 }

@@ -78,7 +78,6 @@ set.fileencoding = "utf-8"
 -- Highlights
 set.termguicolors = true
 set.cursorline = true
-set.background = "dark" -- dark / light
 set.spell = false
 
 -- Undercurl
