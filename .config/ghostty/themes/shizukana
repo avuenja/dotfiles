@@ -1,0 +1,26 @@
+# Shizukana theme for Ghostty
+
+palette = 0=#17141A
+palette = 1=#c88380
+palette = 2=#5A99A3
+palette = 3=#D6727E
+palette = 4=#6d91af
+palette = 5=#9c6465
+palette = 6=#88b7d0
+palette = 7=#FAEFEB
+
+palette = 8=#485a75
+palette = 9=#ecbdc7
+palette = 10=#81D6E4
+palette = 11=#EEB1C2
+palette = 12=#c1dbe3
+palette = 13=#ae909e
+palette = 14=#81D6E4
+palette = 15=#ffffff
+
+background = #17141A
+foreground = #FAEFEB
+cursor-color = #ecbdc7
+cursor-text = #1f262c
+selection-background = #485a75
+selection-foreground = #f3ded1

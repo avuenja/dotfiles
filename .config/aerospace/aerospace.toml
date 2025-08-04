@@ -60,6 +60,10 @@ run = 'layout floating'
 if.app-id = 'com.readdle.smartemail-Mac' # Spark (Mail client)
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'com.IdeaPunch.ColorSlurp'
+run = 'layout floating'
+
 
 # Possible values: (qwerty|dvorak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping

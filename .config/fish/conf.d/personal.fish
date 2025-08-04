@@ -10,6 +10,3 @@ alias :q="exit"
 # Starship
 set -gx STARSHIP_CONFIG "$HOME/.config/starship/starship.toml"
 starship init fish | source
-
-# Nodenv
-status --is-interactive; and nodenv init - fish | source
