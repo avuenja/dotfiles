@@ -121,7 +121,7 @@ format = "[ $path ]($style)"
 format = '[ $symbol$branch(:$remote_branch)]($style)'
 style = 'bg:color_orange fg:color_bg0'
 symbol = '󰘬 '
-truncation_length = 12
+truncation_length = 21
 
 [git_status]
 format = '[ $all_status$ahead_behind ]($style)'
