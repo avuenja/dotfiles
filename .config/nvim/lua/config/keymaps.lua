@@ -1,59 +1,63 @@
-local keymap = vim.keymap
+local keymap = vim.keymap.set
 
--- Keymaps for better default experience
-keymap.set({ "n", "v" }, " ", "<nop>", { silent = true, desc = "Disable leader key on Normal and Visual mode" })
+-- Leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- Copy all lines
-keymap.set("n", "<C-a>", "<cmd>%y+<Return>", { silent = true, desc = "Copy all lines" })
+-- Normal mode --
 
--- Replace all words - better than vsc***
-keymap.set("v", "<C-r>", '"hy:%s/<C-r>h//gc<left><left><left>', { desc = "Replace all words" })
+-- Navegation
+keymap("n", "j", "gj")
+keymap("n", "k", "gk")
 
--- Do not yank with x
-keymap.set("n", "x", '"_x', { desc = "Do not yank with x" })
+-- Centralize cursor
+keymap("n", "<C-d>", "<C-d>zz")
+keymap("n", "<C-u>", "<C-u>zz")
+keymap("n", "n", "nzzzv")
+keymap("n", "N", "Nzzzv")
 
--- Maintain the cursor position when yanking a visual selection
--- http://ddrscott.github.io/blog/2016/yank-without-jank/
-keymap.set("v", "y", "myy`y", { desc = "Yanking without Jank" })
-keymap.set("v", "Y", "myY`y", { desc = "Yanking without Jank" })
+-- Window management
+keymap("n", "<leader>sv", "<C-w>v", { desc = "[S]plit [V]ertically Window" }) -- Split vertically
+keymap("n", "<leader>sh", "<C-w>s", { desc = "[S]plit [H]orizontally Window" }) -- Split horizontally
+keymap("n", "<leader>se", "<C-w>=", { desc = "[S]plit [E]qualize Window" }) -- Equalize
+keymap("n", "<leader>sx", ":close<CR>", { desc = "[S]plit [X]close Window" }) -- Close split
 
--- Clear hlsearch
-keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear hlsearch" })
+-- Window navigation
+keymap("n", "<C-h>", "<C-w>h")
+keymap("n", "<C-j>", "<C-w>j")
+keymap("n", "<C-k>", "<C-w>k")
+keymap("n", "<C-l>", "<C-w>l")
 
--- TIP: Disable arrow keys in normal mode
-keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>', { desc = "TIP: Disable arrows keys" })
-keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>', { desc = "TIP: Disable arrows keys" })
-keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>', { desc = "TIP: Disable arrows keys" })
-keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>', { desc = "TIP: Disable arrows keys" })
+-- Window resizing
+keymap("n", "<C-Up>", ":resize +2<CR>")
+keymap("n", "<C-Down>", ":resize -2<CR>")
+keymap("n", "<C-Left>", ":vertical resize -2<CR>")
+keymap("n", "<C-Right>", ":vertical resize +2<CR>")
 
--- Disable keymaps
-keymap.set("n", "q:", "<nop>", { desc = "Disabled" })
-keymap.set("n", "Q", "<nop>", { desc = "Disabled" })
+-- Buffer navigation
+keymap("n", "<S-l>", ":bnext<CR>", { desc = "Next buffer" })
+keymap("n", "<S-h>", ":bprevious<CR>", { desc = "Previous buffer" })
+keymap("n", "<leader>bx", ":bdelete<CR>", { desc = "[B]uffer [X]delete" })
 
--- Diagnostic keymaps
-keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+-- Utilities
+keymap("n", "x", '"_x') -- Delete without yanking
+keymap("n", "<C-a>", "gg<S-v>G") -- Select all
+keymap("n", "<leader>nh", ":nohlsearch<CR>", { desc = "Clear [N]o[H]lsearch" }) -- Clear search highlights
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
-keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+-- Visual mode --
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+-- Move selected lines
+keymap("v", "J", ":m '>+1<CR>gv=gv")
+keymap("v", "K", ":m '<-2<CR>gv=gv")
 
--- Toggle Floatermial
-keymap.set("n", "<leader>tt", "<cmd>Floaterminal<CR>", { desc = "[T]oggle Float [T]erminal" })
+-- Keep selection after indenting
+keymap("v", "<", "<gv")
+keymap("v", ">", ">gv")
 
--- Buffers keymaps
-keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "[B]uffer [D]elete" })
-keymap.set("n", "<leader>bp", "<cmd>bp<CR>", { desc = "[B]uffer [P]revious" })
-keymap.set("n", "<leader>bn", "<cmd>bn<CR>", { desc = "[B]uffer [N]ext" })
+-- Replace all occurrences of the selected text
+keymap("v", "<leader>r", '"hy:%s/<C-r>h//gc<Left><Left><Left>')
+
+-- Insert mode --
+
+-- Exit insert mode with 'jk'
+keymap("i", "jk", "<ESC>")

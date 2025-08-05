@@ -3,7 +3,7 @@ return {
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		opts = {
-			preset = "helix",
+			preset = "modern",
 			spec = {
 				{ "<leader>c", group = "[C]ode", mode = { "n", "x" } },
 				{ "<leader>d", group = "[D]ocument" },
@@ -13,6 +13,7 @@ return {
 				{ "<leader>t", group = "[T]oggle" },
 				{ "<leader>b", group = "[B]uffer" },
 				{ "<leader>p", group = "[P]review" },
+				{ "<leader>s", group = "[S]plit" },
 			},
 		},
 		keys = {
