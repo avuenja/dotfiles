@@ -20,7 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nim
 require("lazy").setup("plugins", {
 	install = {
-		colorscheme = { "kanagawa" },
+		colorscheme = { "shizukana" },
 	},
 	change_detection = {
 		notify = false,

@@ -43,3 +43,6 @@ opt.list = true
 opt.listchars = { tab = "| ", trail = "·", nbsp = "␣" }
 opt.fillchars:append({ eob = " " })
 -- set.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+opt.showmode = false
+-- opt.laststatus = 3
