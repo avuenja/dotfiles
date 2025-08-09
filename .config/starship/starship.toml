@@ -1,4 +1,5 @@
-# Shizukana v0.1.0
+# Shizukana Theme for Starship (moon)
+# Generated automatically - do not edit
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
@@ -27,48 +28,47 @@ $python\
 [](fg:color_green bg:color_bg3)\
 $docker_context\
 $conda\
-$pixi\
 [](fg:color_bg3 bg:color_bg1)\
 $time\
 [▓▒░ ](fg:color_bg1)\
 $line_break$character"""
 
-palette = 'shizukana'
+palette = 'shizukana_moon'
 
-[palettes.shizukana]
+[palettes.shizukana_moon]
 # Main colors for the theme
-color_fg0 = '#cae6f0' # main text
-color_fg1 = '#cbb3c6' # secondary text
-color_bg0 = '#15121c' # darkest background
-color_bg1 = '#5b6e87' # main background
-color_bg2 = '#8da1a8' # medium background
-color_bg3 = '#c1a4bb' # light background/borders
+color_fg0 = '#c8d3f5' # main text
+color_fg1 = '#a9b1d6' # secondary text
+color_bg0 = '#15161e' # darkest background
+color_bg1 = '#0b0b0f' # main background
+color_bg2 = '#1f2333' # medium background
+color_bg3 = '#545c7e' # light background/borders
 
 # Highlight colors
-color_red = '#bb606e'    # red
-color_green = '#639b9a'  # green  
-color_yellow = '#b3a15e' # yellow/gold
-color_blue = '#68b5c5'   # blue
-color_purple = '#dc97ad' # purple/pink
-color_cyan = '#8dc7d3'   # cyan
-color_orange = '#ca848f' # orange/peach
+color_red = '#b25158'    # red
+color_green = '#73a857'  # green
+color_yellow = '#e0af68' # yellow/gold
+color_blue = '#7aa2f7'   # blue
+color_purple = '#bb9af7' # purple/pink
+color_cyan = '#41a6b5'   # cyan
+color_orange = '#cc7e50' # orange/peach
 
 # Bright/alternative colors
-color_bright_red = '#ca848f'
-color_bright_green = '#82afae'
-color_bright_yellow = '#c3b581'
-color_bright_blue = '#deeff6'
-color_bright_purple = '#e9bdcb'
-color_bright_cyan = '#cbb3c6'
+color_bright_red = '#f7768e'
+color_bright_green = '#9ece6a'
+color_bright_yellow = '#e0af68'
+color_bright_blue = '#7aa2f7'
+color_bright_purple = '#bb9af7'
+color_bright_cyan = '#7dcfff'
 
 # Git/Diff specific colors
-color_git_add = '#639b9a'
-color_git_change = '#b3a15e'
-color_git_delete = '#bb606e'
+color_git_add = '#9ece6a'
+color_git_change = '#7aa2f7'
+color_git_delete = '#f7768e'
 
 # Comments and details colors
-color_comment = '#8da1a8'
-color_wave_blue = '#5b6e87' # popups/floats
+color_comment = '#636da6'
+color_wave_blue = '#1f2333' # popups/floats
 
 [os]
 disabled = false
@@ -78,25 +78,25 @@ format = '[ $symbol]($style)'
 [os.symbols]
 Windows = "󰍲"
 Ubuntu = "󰕈"
-SUSE = ""
+SUSE = ""
 Raspbian = "󰐿"
 Mint = "󰣭"
 Macos = "󰀵"
-Manjaro = ""
+Manjaro = ""
 Linux = "󰌽"
 Gentoo = "󰣨"
 Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
+Alpine = ""
+Amazon = ""
+Android = ""
 Arch = "󰣇"
 Artix = "󰣇"
-EndeavourOS = ""
-CentOS = ""
+EndeavourOS = ""
+CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
-Pop = ""
+Pop = ""
 
 [username]
 show_always = true
@@ -112,9 +112,9 @@ format = "[ $path ]($style)"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
-"Downloads" = " "
+"Downloads" = " "
 "Music" = "󰝚 "
-"Pictures" = " "
+"Pictures" = " "
 "Developer" = "󰲋 "
 
 [git_branch]
@@ -128,12 +128,12 @@ format = '[ $all_status$ahead_behind ]($style)'
 style = 'bg:color_orange fg:color_bg0'
 
 [c]
-symbol = " "
+symbol = " "
 style = 'bg:color_yellow fg:color_bg0'
 format = '[ $symbol ($version) ]($style)'
 
 [cpp]
-symbol = " "
+symbol = " "
 style = 'bg:color_yellow fg:color_bg0'
 format = '[ $symbol ($version) ]($style)'
 
@@ -143,43 +143,43 @@ style = 'bg:color_yellow fg:color_bg0'
 format = '[ $symbol ($version) ]($style)'
 
 [kotlin]
-symbol = ""
+symbol = ""
 style = 'bg:color_yellow fg:color_bg0'
 format = '[ $symbol ($version) ]($style)'
 
 [haskell]
-symbol = ""
+symbol = ""
 style = 'bg:color_yellow fg:color_bg0'
 format = '[ $symbol ($version) ]($style)'
 
 [php]
-symbol = ''
+symbol = ''
 format = '[ $symbol ($version) ]($style)'
 style = 'bg:color_blue fg:color_bg0'
 
 [java]
-symbol = ""
+symbol = ""
 format = '[ $symbol ($version) ]($style)'
 style = 'bg:color_blue fg:color_bg0'
 
 [golang]
-symbol = ""
+symbol = ""
 format = '[ $symbol ($version) ]($style)'
 style = 'bg:color_blue fg:color_bg0'
 
 [nodejs]
-symbol = ""
+symbol = ""
 format = '[ $symbol($version) ]($style)'
-style = 'bg:color_green fg:color_fg0'
+style = 'bg:color_green fg:color_bg0'
 not_capable_style = 'bg:color_red fg:color_fg0'
 
 [python]
-symbol = ""
+symbol = ""
 format = '[ $symbol($version) ]($style)'
-style = 'bg:color_green fg:color_fg0'
+style = 'bg:color_green fg:color_bg0'
 
 [docker_context]
-symbol = ""
+symbol = ""
 format = '[ $symbol( $context) ]($style)'
 style = 'bg:color_bg3 fg:color_bg0'
 
@@ -187,24 +187,20 @@ style = 'bg:color_bg3 fg:color_bg0'
 format = '[ $symbol( $environment) ]($style)'
 style = 'bg:color_bg3 fg:color_bg0'
 
-[pixi]
-format = '[ $symbol( $version)( $environment) ]($style)'
-style = 'bg:color_bg3 fg:color_bg0'
-
 [time]
 disabled = false
 time_format = "%R"
 style = 'bg:color_wave_blue fg:color_fg0'
-format = '[  $time ]($style)'
+format = '[  $time ]($style)'
 
 [line_break]
 disabled = false
 
 [character]
 disabled = false
-success_symbol = '[](bold fg:color_green)'
-error_symbol = '[](bold fg:color_red)'
-vimcmd_symbol = '[](bold fg:color_green)'
-vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
-vimcmd_replace_symbol = '[](bold fg:color_purple)'
-vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'

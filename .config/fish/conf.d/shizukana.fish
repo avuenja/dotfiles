@@ -1,21 +1,21 @@
 #!/usr/bin/fish
-
-# Shizukana Fish shell theme
-# Based on the Shizukana color palette by avuenja
+# Shizukana Fish shell theme (moon)
+# Based on the Shizukana color palette
+# Generated automatically - do not edit
 
 # Color definitions using your palette
-set -l foreground f3ded1 normal
-set -l background 1f262c normal
-set -l selection 485a75 normal
-set -l comment 72905a normal
-set -l red c88380 red
-set -l orange b49b82 brred
-set -l yellow cdb6a3 yellow
-set -l green 59754d green
-set -l purple 9c6465 magenta
-set -l cyan 88b7d0 cyan
-set -l blue 6d91af blue
-set -l pink ecbdc7 brmagenta
+set -l foreground c8d3f5 normal
+set -l background 12131a normal
+set -l selection 1f2333 normal
+set -l comment 636da6 normal
+set -l red ff757f red
+set -l orange ff9e64 brred
+set -l yellow e0af68 yellow
+set -l green 9ece6a green
+set -l purple bb9af7 magenta
+set -l cyan 41a6b5 cyan
+set -l blue 7aa2f7 blue
+set -l pink ffc0d9 brmagenta
 
 # Syntax Highlighting Colors
 set -g fish_color_normal $foreground
@@ -66,16 +66,9 @@ set -g fish_color_option $cyan
 if type -q ls
     alias ls 'ls --color=auto'
 end
-
 if type -q grep
     alias grep 'grep --color=auto'
 end
-
 if type -q diff
     alias diff 'diff --color=auto'
-end
-
-# Welcome message (optional)
-function fish_greeting
-    echo "🌸 Shizukana theme loaded"
 end

@@ -17,6 +17,7 @@ return {
 				"vim",
 				"vimdoc",
 				"dot",
+				"regex",
 			},
 			auto_install = true,
 			highlight = {
